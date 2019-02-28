@@ -1,0 +1,48 @@
+-----TAKE SOME FREE ONLINE COURSES, LIKE 150 HOURS WORTH-----
+
+Start with this Cybrary.it, move on to Udemy.
+
+https://www.cybrary.it/course/intro-to-infosec/ <--- easy course
+https://www.cybrary.it/course/ethical-hacking
+https://www.cybrary.it/course/comptia-aplus/
+https://www.cybrary.it/course/comptia-902-2018
+https://www.cybrary.it/course/comptia-network-plus/
+https://www.cybrary.it/course/comptia-security-plus/
+https://www.cybrary.it/course/comptia-cysa-2018/
+https://www.udemy.com/comptia-security-certification-sy0-501-the-total-course/
+https://www.udemy.com/pentestplus/
+https://www.udemy.com/comptiacsaplus/
+
+-----**Some pirated pluralsite courses**
+
+----> Full list of these, like 150 pirated courses
+        https://pastebin.com/j0WVfDif
+
+http://www.mediafire.com/download/2kczrn29gt6fdp3/Introduction+to+Firewalls.rar    
+http://www.mediafire.com/download/mnulcdbw817f9q0/Metasploit+Basics.rar
+http://www.mediafire.com/download/lhajdkufn9oi5ta/Cisco+CCNA+Security%3B+Firewalls+and+VPNs.rar
+http://www.mediafire.com/download/yraijpmuzoa1zpn/Cisco+CCNA+Security%3B+Introduction+to+Network+Security.rar
+
+
+-----PRACTICE YOUR SKILLS------
+vulnhub.com
+hackthebox.eu
+overthewire.org
+hackthissite.com
+http://www.dvwa.co.uk
+picoctf.com
+
+---------Also check out---------------
+
+https://www.youtube.com/user/professormesser
+https://www.youtube.com/channel/UC0ZTPkdxlAKf-V33tqXwi3Q
+https://www.youtube.com/channel/UClcE-kVhqyiHCcjYwcpfj9w
+https://www.youtube.com/channel/UCa6eh7gCkpPo5XXUDfygQQA/featured
+www.reddit.com/r/netsec
+www.reddit.com/r/netsecstudents
+
+
+------------
+
+
+Most importantly, I cannot stress this enough. As a security researcher and bug hunter. I sit in front of my computer for 10 hours a day in front of three monitors, scanning and exploiting systems legally, hunting bugs, getting paid, and following the law. It's boring and tedious, nothing is super cool and unless it's your passion it's not going to be fun. You sit scanning code looking for vulns, reading data logs, picking through network packets. It's not like the movies, it's a bunch of IT nerds who love computers building homelabs and doing computer stuff. Keep your mind open and pursue the knowledge you want.
