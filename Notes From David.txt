@@ -1,0 +1,120 @@
+sudo service tor start
+
+proxychains firefox
+
+leafpad /etc/proxychains.conf
+
+leafpad /usr/lib/proxychains3/proxyresolv
+
+------------------------------------
+tls / weak ciphers / weak protocols
+------------------------------------
+create a file called ssl.txt put ip:port that you want scaned. run the first command against the file, then the second command.
+
+for i in $(cat ssl.txt); do sslscan $i | tee scan$i; done
+
+/root/sslparse/sslparse.pl scan*
+
+cat each spl files for screen shots
+------------------------------------
+for missing secure attribute ssl cookie information disclosure vulnerbility:
+------------------------------------
+nikto --host https://\<ipaddie>:port
+
+
+------------------------------------
+for robots.txt
+------------------------------------
+navigate to <ipaddie/robots.txt> to see if there is any info there, if none, then false positive.
+
+------------------------------------
+search for a file
+------------------------------------
+find / -name <name of file>
+------------------------------------
+
+------------------------------------
+SMB vuln
+------------------------------------
+--script smb-check-vulns.nse --script-args=unsafe=1 <ips>
+
+------------------------------------
+how to spool in metasploit
+------------------------------------
+go to metasploit
+
+spool filename
+
+spool off or close meta to stop it
+
+------------------------------------
+to get the internal ip from an iis server
+------------------------------------
+auxiliary/scanner/http/iis_internal_ip
+
+
+------------------------------------
+HTTP Header Content-Location Information Disclosure
+------------------------------------
+
+run the following from this directory:
+"nmap --script header_content.nse <ipaddress>"
+
+-------------------------------------
+Missing httpOnly Cookie Attribute / other cookie issues
+-------------------------------------
+
+run the following command:
+
+nikto --host https://\<ipaddie>
+
+-------------------------------------
+after creating new scripts, etc.
+-------------------------------------
+chmod + x to give writes to execute
+
+
+
+-------------------------------------
+splitscreen terminals
+-------------------------------------
+use terminator for terminal, right click in window and split veritically
+
+-------------------------------------
+
+
+alias file is --> leafpad ~/.zshrc
+
+
+nmap -p 389 --script ldap-search --script-args 'ldap.username="cn=ldaptest,cn=users,dc=cqure,dc=net",ldap.password=ldaptest, ldap.qfilter=users,ldap.attrib=sAMAccountName' 10.68.20.12
+
+------------------------------------
+--reason <-- add to nmaps
+-A
+------------------------------------
+
+------------------------------------
+NMAP - 
+udp scan command
+
+nmap -sU -p 53,67,68,69,123,137,138,139,161,162,389,500,636 -Pn -oG nmapudp.txt -iL ips.txt --reason
+
+
+single nmap command for tcp and udp:
+nmap -sSUV -iL ips.txt -Pn --open --reason -p U:53,67,68,69,123,137,138,139,161,162,389,500,636,T:21,22,23,25,53,80,443,1723,3389,2000,8080 -oG nmapresults.txt
+
+
+-----------------------------------
+SSH encryption check
+-----------------------------------
+nmap -sT -Pn -p 22 10.68.30.145 --script ssh2-enum-algos.nse -reason -A
+
+------------------------------------
+curl scans
+------------------------------------
+curl -Ik https://xx.xx.xx.xx
+
+-------------------------------------
+poodle check 
+-------------------------------------
+nmap -sV -Pn -p <Ports> --version-light --script ssl-poodle <IPs>

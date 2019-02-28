@@ -1,0 +1,31 @@
+Easy SSL Scanning and Parsing From James ----------
+
+I just placed the files in the /root/ directory. Ex. /root/sslparse/
+
+Create an ssl file that has all of the IP addresses using SSL and their ports (443,587,8443,3889…..) 
+Ex.          12.34.56.78:443
+                12.34.56.78:3889
+
+Run SSLScan in a for loop to create scan files
+for i in $(cat ssl); do sslscan $i | tee scan$i; done
+
+Run sslparse.pl to parse out the files
+/root/sslparse/sslparse.pl scan*
+
+Additional details, references, and recommendations can be found in the EPT report. The vulnerabilities below were found during the testing dates 9/5/18 and 9/6/18.
+
+Scope:
+65.51.176.218
+65.51.176.219
+65.51.176.220
+65.51.176.221
+65.51.176.222
+industrialcoverage.com
+
+
+
+for i in $(cat snmp-hosts.txt); do snmpwalk -v 1 -c private $i ; done
+
+for i in $(cat subnets); do add $i | tee scan$i; done
+
+for i in $(cat https-hosts.txt); do sslscan $i | tee scan$i; done
